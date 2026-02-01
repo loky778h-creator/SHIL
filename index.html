@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Shilo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root {
+  --blue:#1e3a8a;
+  --gray:#e5e7eb;
+}
+body {
+  margin:0;
+  font-family:Arial;
+  background:#f9fafb;
+  direction:rtl;
+}
+#splash {
+  position:fixed; inset:0;
+  background:rgba(0,0,0,.6);
+  backdrop-filter:blur(8px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:10;
+}
+#splash h1 {
+  background:white;
+  color:var(--blue);
+  padding:20px 50px;
+  border-radius:20px;
+  font-size:40px;
+}
+header {
+  background:var(--blue);
+  color:white;
+  padding:10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+header img {
+  width:36px; height:36px;
+  border-radius:50%;
+  cursor:pointer;
+}
+.page { display:none; padding:15px; }
+.page.active { display:block; }
+nav {
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:var(--blue);
+  display:flex;
+  justify-content:space-around;
+}
+nav button {
+  background:none;
+  border:none;
+  color:white;
+  padding:12px;
+}
+.card {
+  background:white;
+  padding:10px;
+  border-radius:12px;
+  margin-bottom:10px;
+}
+input, textarea, select, button {
+  width:100%;
+  margin-top:6px;
+  padding:8px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+button { background:var(--blue); color:white; border:none; }
+small { color:gray; }
+</style>
+</head>
+
+<body>
+
+<div id="splash"><h1>Shilo</h1></div>
+
+<header>
+  <div>☰</div>
+  <div>Shilo</div>
+  <img id="avatar" src="https://via.placeholder.com/150">
+</header>
+
+<div id="home" class="page active">
+  <h3>الإعلانات</h3>
+  <div id="ads"></div>
+</div>
+
+<div id="add" class="page">
+  <h3>إضافة إعلان</h3>
+  <input id="title" placeholder="عنوان">
+  <textarea id="desc" placeholder="وصف"></textarea>
+  <select id="type">
+    <option>بيع مباشر</option>
+    <option>على السوم</option>
+  </select>
+  <button onclick="addAd()">نشر</button>
+</div>
+
+<div id="account" class="page">
+  <h3>حسابي</h3>
+  <input id="name" placeholder="اسمك">
+  <input id="img" placeholder="رابط صورة الحساب">
+  <button onclick="saveProfile()">حفظ</button>
+</div>
+
+<nav>
+  <button onclick="show('home')">🏠</button>
+  <button onclick="show('add')">➕</button>
+  <button onclick="show('account')">👤</button>
+</nav>
+
+<script>
+setTimeout(()=>splash.style.display="none",2000);
+
+function show(id){
+ document.query
